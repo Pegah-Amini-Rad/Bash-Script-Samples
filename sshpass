@@ -1,0 +1,18 @@
+#!/bin/bash
+
+IP=$1
+USER=$2
+PASSWORD=$3
+SEND_FILE="/etc/passwd"
+DESTINATION_PATH="/home/$2"
+PORT=2222
+
+echo "******************************"
+if ping -c 1 $IP &> /dev/null
+then
+  sshpass -p "$PASSWORD" scp -P $PORT  "$SEND_FILE" "$USER@$IP:$DESTINATION_PATH"
+  echo "Sending file was successful."
+else
+  echo "Server is not accessible"
+fi
+echo "******************************"
