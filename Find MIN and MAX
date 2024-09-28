@@ -1,0 +1,21 @@
+#!/bin/bash
+for ((i=1;i<=20;i++))
+do
+   read -p "Please Enter Number $I : " NUM
+   if [ $I -eq 1 ]
+   then
+      MIN=$NUM
+      MAX=$NUM
+   fi
+   
+   if [ $NUM -gt $MAX ]
+   then
+       MAX=$NUM
+   elif [ $NUM -lt $MIN ]
+   then
+       MIN=$NUM
+   fi
+done
+
+echo " Max is $MAX "
+echo " Min is $MIN "
