@@ -1,0 +1,25 @@
+#!/bin/bash
+
+ERROR=1
+while  [ $ERROR -eq 1 ]
+do
+   read -p "Please Enter Number :" NUM
+   echo "******************************"
+   if echo "$NUM" | grep -qE '^[0-9]+$'
+   then
+        if [ $NUM -gt 10 ]
+        then
+            echo "$NUM is greater than 10"
+        elif [ $NUM -lt 10  ]
+        then
+            echo "$NUM is less than 10"
+        else
+            echo "$NUM is equal 10"
+        fi
+        ERROR=0
+    else
+        echo "Error: not a number."
+        ERROR=1
+    fi
+    echo "******************************"
+done
