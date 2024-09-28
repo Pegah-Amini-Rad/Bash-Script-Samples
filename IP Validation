@@ -1,0 +1,27 @@
+#!/bin/bash
+
+ERROR=1
+while [ -z $IP ] || [ $ERROR -eq 1 ]
+do
+
+
+read -p "Please Enter IP : " IP
+
+F1=`echo $IP | cut -d "." -f 1`
+F2=`echo $IP | cut -d "." -f 2`
+F3=`echo $IP | cut -d "." -f 3`
+F4=`echo $IP | cut -d "." -f 4`
+
+ echo "******************************"
+if [[ $IP =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ && $F1 -le 255 && $F2 -le 255 && $F3 -le 255 && $F4 -le 255 ]]
+then
+    echo "IP is valid"
+    ERROR=0
+else
+    echo "IP is not valid"
+    ERROR=1
+fi
+ echo "******************************"
+
+
+done
