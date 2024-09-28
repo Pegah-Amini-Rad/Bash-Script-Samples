@@ -1,0 +1,18 @@
+#!/bin/bash
+
+IP_FILE="./ip_file"
+IP_FILE_LOG="./ip_file_log"
+DATE=`date`
+
+while read -r LINE
+do
+
+    if ping -c 1 $LINE &> /dev/null
+    then
+         echo " $LINE is accessible - $DATE "  >> $IP_FILE_LOG
+
+    else
+         echo " $LINE is not accessible - $DATE "  >> $IP_FILE_LOG
+    fi
+
+done < "$IP_FILE"
