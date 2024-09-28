@@ -1,0 +1,12 @@
+Write a program that take a backup from home directory of your user after each
+time user logged out.
+
+#!/bin/bash
+# ~/.bash_logout
+ 
+
+1. ) open the file ~/.bash_logout
+2. ) copy these commands to ~/.bash_logout
+3.)  USER="test"
+3. ) DATE=`date +"%y-%m-%d" | cut -d " " -f 1`
+4. ) cp -rf /home/$USER /temp/backup_log_$USER_$DATE
